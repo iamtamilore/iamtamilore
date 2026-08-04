@@ -1,6 +1,6 @@
 # Taiwo Alabi
 
-**I build AI systems that know when to say "I don't know."**
+**I tune AI to the cost of being wrong.**
 
 MSc Artificial Intelligence, National College of Ireland · Dublin
 
@@ -8,19 +8,18 @@ MSc Artificial Intelligence, National College of Ireland · Dublin
 
 ## Why that sentence, and not something about Python
 
-Most AI systems have one setting: answer. Ask them anything and they produce something,
-confidently, every time.
+Every model has a dial on it. Turn it one way and it flags too much, and people stop
+trusting the system. Turn it the other way and it misses the thing that mattered.
 
-That is fine when the stakes are a film recommendation. It stops being fine when the system
-is routing a customer complaint, checking whether a face belongs to the right person,
-deciding how much money to risk, or telling a doctor about your medical history.
+**There is no setting that is simply correct.** Where the dial goes depends on what it
+costs when the system is wrong, and that cost is different in every product. Getting it
+right in one project tells you almost nothing about the next one.
 
-**Confident wrongness is the failure mode nobody catches**, because it does not look like a
-failure. It looks like an answer.
+So that is the question I start from. Not *how accurate is it*, but **what happens when
+it's wrong, and which kind of wrong is worse?**
 
-So I keep building the other thing. Every project below has a moment where the system stops
-and hands the decision back to a human, and in most of them that moment is the part I am
-proudest of.
+Five projects below, five different answers. One of them has no dial at all, and that is
+the one I would point at first.
 
 ---
 
@@ -37,8 +36,10 @@ which team they belong to. **95.2% accuracy.**
 right, and still flagged two for a human, because those two only scored 0.37 and 0.41
 confidence.
 
-It was right, and it did not know it was right. That gap is the whole reason the confidence
-gate exists.
+It was right, and it was not sure. Those are different things.
+
+**Cost of being wrong:** a misroute costs a customer days of waiting. A needless escalation
+costs an agent five minutes. Wildly lopsided, so I set the dial to escalate freely.
 
 `Python` `scikit-learn` `BPMN 2.0`
 
@@ -59,6 +60,11 @@ leakage is not something you catch in review, it is something you design out.
 
 The whole thing runs on the hospital's own machine. Nothing goes to anyone's cloud.
 
+**Cost of being wrong:** a data breach, and possibly a wrong prescription. Too expensive to
+leave to a threshold - so this is the project with **no dial in it at all**. The failure is
+designed out at the query, not tuned down afterwards. Knowing when not to use a threshold
+is the part I had to learn.
+
 `FastAPI` `PostgreSQL + pgvector` `Llama 3.1` `LangGraph` `Docker`
 
 ---
@@ -77,6 +83,10 @@ GDPR article numbers. A wrong legal citation is worse than no citation, because 
 authoritative. So I deleted the clever version and replaced it with a boring template that
 cannot make things up.
 
+**Cost of being wrong:** telling you your bank's terms are predatory when they are not. A
+bad warning is worse than no warning, so anything under the confidence line is not shown at
+all - not shown with a caveat.
+
 `Sentence-BERT` `FAISS` `Claude API` `Flask`
 
 ---
@@ -92,6 +102,9 @@ design, so instead of quietly reversing that decision I put the choice back to t
 the reasoning: the magic link already *is* a one-time reset link. We kept it passwordless.
 Every decision like that is written down in a numbered decision register, alongside a threat
 model and a data governance doc.
+
+**Cost of being wrong:** a stranger getting into someone's account. Adding a password reset
+would have put back the exact hole the passwordless design removed.
 
 `FastAPI` `Supabase PostgreSQL` `Render` `HTMX`
 
@@ -111,6 +124,9 @@ It only studies good images and learns to redraw them. When something off-brand 
 redraw comes out wrong, and that error is the alarm. Which matters, because nobody has a
 labelled library of "campaign photos that went wrong."
 
+**Cost of being wrong:** here it is the false alarm, not the miss. A quality gate that cries
+wolf gets switched off within a week. So zero false positives was the target, not a bonus.
+
 `TensorFlow` `ResNet50` `Siamese networks`
 
 ---
@@ -122,8 +138,9 @@ Four returning internships at **Huawei Technologies**, on a telecom billing plat
 would act on it: cataloguing what every field meant, mapping it across 61 warehouse tables,
 and writing 440+ test cases to prove it was right.
 
-You do not spend four summers on data quality at that scale and then go on to build AI that
-answers confidently regardless of whether it should.
+That is where the habit comes from. At four billion call records a day, the cost of a wrong
+number is a manager acting on it, so you learn to ask what a mistake actually costs before
+you decide how careful to be.
 
 I also spent three months as an **AI Quality Analyst evaluating Google Gemini** - reading
 model outputs and documenting precisely where and how they slipped. Same instinct, from the
@@ -144,8 +161,7 @@ other side.
 
 ## Get in touch
 
-Open to graduate and internship roles in Dublin, particularly anywhere the cost of a
-confidently wrong answer is high: health, finance, regulated industries, AI evaluation and
-safety.
+Open to graduate and internship roles in Dublin, particularly where being wrong is
+expensive: health, finance, regulated industries, AI evaluation and safety.
 
 [Email](mailto:alabitaiwo625@gmail.com) · [LinkedIn](https://www.linkedin.com/in/tami-alabi/)
