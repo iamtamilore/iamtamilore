@@ -138,7 +138,7 @@ Four returning internships at **Huawei Technologies**, on a telecom billing plat
 would act on it: cataloguing what every field meant, mapping it across 61 warehouse tables,
 and writing 440+ test cases to prove it was right.
 
-That is where the habit comes from. At four billion call records a day, the cost of a wrong
+That is where the habit comes from. At that volume, the cost of a wrong
 number is a manager acting on it, so you learn to ask what a mistake actually costs before
 you decide how careful to be.
 
