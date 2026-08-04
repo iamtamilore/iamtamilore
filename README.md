@@ -81,26 +81,6 @@ cannot make things up.
 
 ---
 
-### 📈 [AI Trading Assistant](https://iamtamilore.github.io/ai-trading-assistant/)
-*Reads 48 world markets each morning and gives one clear call on each.*
-
-People do not usually lose money because they picked a bad company. They lose it because
-they panicked, and sold at the bottom.
-
-Four separate models vote, and at least two of three have to agree before anything happens.
-Which is why on a normal day it says **wait** on about two thirds of everything.
-
-**The bit I like:** tested across 2022, when the US market fell 20% and Bitcoin fell 65%,
-it lost **1.2%**. Not because it predicted the crash. Because it had rules about when to
-step back, and it followed them. Validated over **7,800 walk-forward windows** with no
-data leakage.
-
-Paper trading, not real money, and I say so on the page.
-
-`PyTorch` `PatchTST` `SAC / TD3 / PPO` `Hidden Markov Models`
-
----
-
 ### 🏠 [Share-A-Home](https://shareahome.onrender.com)
 *A live marketplace for students finding rooms and landlords filling the gaps between them.*
 
