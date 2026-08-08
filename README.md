@@ -4,6 +4,8 @@
 
 MSc Artificial Intelligence, National College of Ireland · Dublin
 
+**[iamtamilore.github.io](https://iamtamilore.github.io)** · every project below has a full write-up there, with the diagrams, plots and results.
+
 ---
 
 ## Why that sentence, and not something about Python
