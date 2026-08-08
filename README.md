@@ -61,7 +61,7 @@ leakage is not something you catch in review, it is something you design out.
 The whole thing runs on the hospital's own machine. Nothing goes to anyone's cloud.
 
 **Cost of being wrong:** a data breach, and possibly a wrong prescription. Too expensive to
-leave to a threshold - so this is the project with **no dial in it at all**. The failure is
+leave to a threshold-so this is the project with **no dial in it at all**. The failure is
 designed out at the query, not tuned down afterwards. Knowing when not to use a threshold
 is the part I had to learn.
 
@@ -85,7 +85,7 @@ cannot make things up.
 
 **Cost of being wrong:** telling you your bank's terms are predatory when they are not. A
 bad warning is worse than no warning, so anything under the confidence line is not shown at
-all - not shown with a caveat.
+all-not shown with a caveat.
 
 `Sentence-BERT` `FAISS` `Claude API` `Flask`
 
@@ -121,8 +121,8 @@ Fifty images per model, checked by eye, and human eyes get worse at this after t
 
 **The bit I like:** it detects off-style images **without ever having been shown a bad one**.
 It only studies good images and learns to redraw them. When something off-brand arrives, the
-redraw comes out wrong, and that error is the alarm. Which matters, because nobody has a
-labelled library of "campaign photos that went wrong."
+redraw comes out wrong, and that error is the alarm. This matters, because nobody has a
+labeled library of "campaign photos that went wrong."
 
 **Cost of being wrong:** here it is the false alarm, not the miss. A quality gate that cries
 wolf gets switched off within a week. So zero false positives was the target, not a bonus.
