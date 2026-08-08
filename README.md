@@ -18,7 +18,7 @@ right in one project tells you almost nothing about the next one.
 So that is the question I start from. Not *how accurate is it*, but **what happens when
 it's wrong, and which kind of wrong is worse?**
 
-Five projects below, five different answers. One of them has no dial at all, and that is
+Four projects below, five different answers. One of them has no dial at all, and that is
 the one I would point at first.
 
 ---
