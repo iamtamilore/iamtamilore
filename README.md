@@ -87,28 +87,7 @@ cannot make things up.
 bad warning is worse than no warning, so anything under the confidence line is not shown at
 all-not shown with a caveat.
 
-`Sentence-BERT` `FAISS` `Claude API` `Flask`
-
----
-
-### 🏠 [Share-A-Home](https://shareahome.onrender.com)
-*A live marketplace for students finding rooms and landlords filling the gaps between them.*
-
-Deployed and running. Listings, ID verification, chat, viewing bookings, e-signed contracts,
-ratings.
-
-**The bit I like:** I was asked to add a "forgot password" page. The app is passwordless by
-design, so instead of quietly reversing that decision I put the choice back to the user with
-the reasoning: the magic link already *is* a one-time reset link. We kept it passwordless.
-Every decision like that is written down in a numbered decision register, alongside a threat
-model and a data governance doc.
-
-**Cost of being wrong:** a stranger getting into someone's account. Adding a password reset
-would have put back the exact hole the passwordless design removed.
-
-`FastAPI` `Supabase PostgreSQL` `Render` `HTMX`
-
----
+`Sentence-BERT` `FAISS` `Claude API` 
 
 ### 👁️ Campaign Image QA *(private until graded)*
 *Catches the moment an AI-generated model stops being the same person.*
