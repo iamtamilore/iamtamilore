@@ -74,16 +74,16 @@ is the part I had to learn.
 ### 📜 [TermsGuard AI](https://github.com/iamtamilore/terms-guard-ai) · [try it live](https://newtazer-terms-guard-ai.hf.space)
 *Reads the small print for you and warns you about the sneaky bits.*
 
-Reading every privacy policy you accept in a year would take **244 hours**. So 91% of people
-tick "I agree" and unknowingly consent to their data being sold. It is like signing a
-contract in a language you do not speak, handed to you by the person who wrote it.
-
-**87% F1**, and grounding the model in retrieved text cut invented content by **77%**.
+Nobody reads privacy policies. It is like signing a contract in a language you do not speak,
+handed to you by the person who wrote it. Reading every one you would actually encounter in a
+year would take **244 hours**, so **91%** of people just tick "I agree" and unknowingly consent
+to their data being sold.
 
 **The bit I like:** the summary used to be written by a language model, and it hallucinated
 GDPR article numbers. A wrong legal citation is worse than no citation, because it sounds
 authoritative. So I deleted the clever version and replaced it with a boring template that
-cannot make things up.
+cannot make things up. Grounding the model in retrieved text instead of letting it
+free-associate cut invented content by **77%**, and it holds **87% F1** doing it.
 
 **Cost of being wrong:** telling you your bank's terms are predatory when they are not. A
 bad warning is worse than no warning, so anything under the confidence line is not shown at
