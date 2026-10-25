@@ -32,13 +32,13 @@ the one I would point at first.
 
 I had a job sorting hundreds of customer complaints before 9am. So I replaced it: one
 rule-following bot for the fussy checking, one AI agent for reading complaints and deciding
-which team they belong to. **95.2% accuracy.**
+which team they belong to. **95.2% accuracy on 42 held-out tickets.**
 
-**The bit I like:** I gave the agent five complaints it had never seen. It got all five
-right, and still flagged two for a human, because those two only scored 0.37 and 0.41
-confidence.
-
-It was right, and it was not sure. Those are different things.
+**The bit I like:** the headlines are 95.2% accurate on the easy 90% of complaints, and
+the gate is what the system does with the other 10%. Below 0.55 confidence the agent
+escalates to a human instead of forcing a label. The honest limit is that 42 tickets is
+a thin evaluation, and the gate's threshold was set by judgement about the cost of a
+needless escalation, not by a swept search.
 
 **Cost of being wrong:** a misroute costs a customer days of waiting. A needless escalation
 costs an agent five minutes. Wildly lopsided, so I set the dial to escalate freely.
@@ -74,22 +74,27 @@ is the part I had to learn.
 ### 📜 [TermsGuard AI](https://github.com/iamtamilore/terms-guard-ai) · [try it live](https://newtazer-terms-guard-ai.hf.space)
 *Reads the small print for you and warns you about the sneaky bits.*
 
-Nobody reads privacy policies. It is like signing a contract in a language you do not speak,
-handed to you by the person who wrote it. Reading every one you would actually encounter in a
-year would take **244 hours**, so **91%** of people just tick "I agree" and unknowingly consent
-to their data being sold.
+Nobody reads privacy policies. Reading every one you would actually encounter in a year
+would take roughly 244 hours, so most people tick "I agree" and move on without knowing
+what they agreed to.
 
-**The bit I like:** the summary used to be written by a language model, and it hallucinated
-GDPR article numbers. A wrong legal citation is worse than no citation, because it sounds
-authoritative. So I deleted the clever version and replaced it with a boring template that
-cannot make things up. Grounding the model in retrieved text instead of letting it
-free-associate cut invented content by **77%**, and it holds **87% F1** doing it.
+**The bit I like:** the previous build labelled clauses as model-verified when no model
+had actually looked at them. The Anthropic key had no credit, the except block swallowed
+the 400 error, and the app carried on showing cosine scores. The fix added three routing
+paths for the verifier (direct Anthropic SDK, kie.ai, OpenRouter) tried in order with
+retry, and the response now carries `verification_source` and `verification_error` so a
+silent fallback is impossible. Verified by a regression suite of twelve inputs passing
+against the live deployment on 25 October 2026.
 
-**Cost of being wrong:** telling you your bank's terms are predatory when they are not. A
-bad warning is worse than no warning, so anything under the confidence line is not shown at
-all-not shown with a caveat.
+102 hand-labelled reference clauses (52 fair, 50 unfair). 4,527-chunk retrieval index of
+data-governance and GDPR context. Up to 15 flagged clauses go to Claude for verification
+per analysis.
 
-`Sentence-BERT` `FAISS` `Claude API` 
+**Cost of being wrong:** telling you your bank's terms are predatory when they are not.
+A bad warning is worse than no warning, so anything under the confidence line is not
+shown at all, not shown with a caveat.
+
+`Sentence-BERT` `FAISS` `Claude API`
 
 ### 👁️ Campaign Image QA *(private until graded)*
 *Catches the moment an AI-generated model stops being the same person.*
@@ -98,7 +103,7 @@ Generating campaign images for a fashion brand, I kept hitting the same problem:
 "the same model from the side" and the generator invents a *similar but different* person.
 Fifty images per model, checked by eye, and human eyes get worse at this after twenty.
 
-**F1 0.90, ROC-AUC 1.00, and zero false alarms.**
+**F1 0.90, ROC-AUC 1.00, precision 1.00 — zero false acceptances.**
 
 **The bit I like:** it detects off-style images **without ever having been shown a bad one**.
 It only studies good images and learns to redraw them. When something off-brand arrives, the
@@ -107,6 +112,10 @@ labeled library of "campaign photos that went wrong."
 
 **Cost of being wrong:** here it is the false alarm, not the miss. A quality gate that cries
 wolf gets switched off within a week. So zero false positives was the target, not a bonus.
+
+The honest limit is that 90 test pairs is a thin evaluation, and McNemar's test is
+underpowered to confirm the gap against the pixel-difference baseline (F1 0.59) is not
+luck.
 
 `TensorFlow` `ResNet50` `Siamese networks`
 
@@ -123,9 +132,9 @@ That is where the habit comes from. At that volume, the cost of a wrong
 number is a manager acting on it, so you learn to ask what a mistake actually costs before
 you decide how careful to be.
 
-I also spent three months as an **AI Quality Analyst evaluating Google Gemini** - reading
-model outputs and documenting precisely where and how they slipped. Same instinct, from the
-other side.
+I also did a two-month contractor engagement with **Turing** reviewing outputs from
+**Google Gemini** and writing up where and how they slipped. Same instinct, from the other
+side.
 
 ---
 
@@ -145,4 +154,4 @@ other side.
 Open to graduate and internship roles in Dublin, particularly where being wrong is
 expensive: health, finance, regulated industries, AI evaluation and safety.
 
-[Email](mailto:alabitaiwo625@gmail.com) · [LinkedIn](https://www.linkedin.com/in/tami-alabi/)
+[Email](mailto:newalabitaiwo625@gmail.com) · [LinkedIn](https://www.linkedin.com/in/tami-alabi/)
